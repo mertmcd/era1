@@ -1,22 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import CreateEvent from "./pages/CreateEvent";
+import Navbar from "./components/Navbar";
 
 function App() {
-  const [message, setMessage] = useState('');
-
-  useEffect(() => {
-    axios.get('http://localhost:5000/')
-      .then(response => setMessage(response.data))
-      .catch(error => console.error('Error:', error));
-  }, []);
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-3xl font-bold mb-4">Era1 - Full-Stack App</h1>
-        <p className="text-xl">{message}</p>
+    <Router>
+      <Navbar />
+      <div className="container mx-auto p-6">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/create-event" element={<CreateEvent />} />
+        </Routes>
       </div>
-    </div>
+    </Router>
   );
 }
 
