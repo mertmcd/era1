@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import CreateEvent from "./pages/CreateEvent";
+import HomePage from "./pages/Home";
+import CreateEventPage from "./pages/Create";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -9,8 +9,8 @@ function App() {
       <Navbar />
       <div className="container mx-auto p-6">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/create-event" element={<CreateEvent />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/create-event" element={<CreateEventPage />} />
         </Routes>
       </div>
     </Router>

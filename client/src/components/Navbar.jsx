@@ -1,11 +1,20 @@
 // components/Navbar.jsx
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   return (
     <nav className="bg-indigo-600 text-white p-4">
       <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-2xl font-bold">ERA1</h1>
+        <h1
+          className="text-2xl font-bold cursor-pointer"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          ERA1
+        </h1>
         <ul className="flex space-x-6">
           <li>
             <Link to="/" className="hover:text-indigo-300">
