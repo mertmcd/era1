@@ -1,31 +1,35 @@
-import axios from "axios";
 import { useState } from "react";
+import { eventService } from "../service/eventService";
 
 const CreateEvent = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("");
-  const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!title || !date || !location) {
+      alert("Title, date, and location are required.");
+      return;
+    }
+
     setLoading(true);
+
     try {
-      const formData = new FormData();
-      formData.append("title", title);
-      formData.append("description", description);
-      formData.append("date", date);
-      formData.append("location", location);
-      formData.append("image", image);
-      await axios.post("/api/events", formData);
-      setLoading(false);
+      await eventService.createEvent(title, description, date, location);
+      setTitle("");
+      setDescription("");
+      setDate("");
+      setLocation("");
       alert("Event created successfully");
     } catch (err) {
       console.error(err);
-      setLoading(false);
       alert("Failed to create event");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -85,16 +89,6 @@ const CreateEvent = () => {
               onChange={(e) => setLocation(e.target.value)}
               className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm py-2 px-4 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
               required
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Image
-            </label>
-            <input
-              type="file"
-              onChange={(e) => setImage(e.target.files[0])}
-              className="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm py-2 px-4 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
             />
           </div>
           <button
