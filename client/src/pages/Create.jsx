@@ -1,6 +1,6 @@
 import CreateEvent from "../components/CreateEvent";
 
-const CreateEventPage = () => {
+const Create = () => {
   return (
     <div>
       <CreateEvent />
@@ -8,4 +8,4 @@ const CreateEventPage = () => {
   );
 };
 
-export default CreateEventPage;
+export default Create;
