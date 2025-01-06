@@ -1,7 +1,9 @@
 import express from 'express';
 import connectToDatabase from './src/database/connection.js';
 import cors from 'cors';
-import { router } from './src/routes/index.js';
+import eventRouters from './src/routes/events.js';
+import authRouters from './src/routes/auth.js';
+
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -25,8 +27,8 @@ app.get('/health', (req, res) => {
   res.send('I am healthy');
 });
 
-
-app.use('/api', router);
+app.use('/api/events', eventRouters);
+app.use('/api/auth', authRouters);
 
 const PORT = process.env.PORT || 5005;
 app.listen(PORT, () => {
