@@ -5,17 +5,17 @@ import { eventService } from "../service/eventService";
 const Home = () => {
   const [events, setEvents] = useState([]);
 
-  useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const data = await eventService.listEvents();
-        console.log(data);
-        setEvents(data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
+  const fetchEvents = async () => {
+    try {
+      const data = await eventService.listEvents();
+      console.log(data);
+      setEvents(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
+  useEffect(() => {
     fetchEvents();
   }, []);
 
