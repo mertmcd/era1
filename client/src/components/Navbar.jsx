@@ -1,8 +1,10 @@
-// components/Navbar.jsx
 import { Link, useNavigate } from "react-router-dom";
+import ProfileMenu from "./ProfileMenu";
+import { useState } from "react";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <nav className="bg-indigo-600 text-white p-4">
@@ -25,6 +27,16 @@ const Navbar = () => {
             <Link to="/create-event" className="hover:text-indigo-300">
               Create Event
             </Link>
+          </li>
+          <li className="relative">
+            <div
+              className="hover:text-indigo-300 cursor-pointer"
+              onMouseEnter={() => setIsMenuOpen(true)}
+              onMouseLeave={() => setIsMenuOpen(false)}
+            >
+              Profile
+              {isMenuOpen && <ProfileMenu />}
+            </div>
           </li>
         </ul>
       </div>
