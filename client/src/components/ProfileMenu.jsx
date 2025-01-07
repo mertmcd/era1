@@ -6,7 +6,7 @@ const ProfileMenu = () => {
 
   const handleLogout = () => {
     authService.logout();
-    navigate("/login");
+    navigate("/welcome");
   };
 
   const goToSettings = () => {

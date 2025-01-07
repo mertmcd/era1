@@ -34,7 +34,7 @@ const CreateEvent = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
+    <div className="bg-gray-50 flex items-center justify-center p-6">
       <div className="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg">
         <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">
           Create Event
