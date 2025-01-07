@@ -1,4 +1,4 @@
-import { createEvent, listEvents } from '../database/Event.js';
+import { createEvent, listEvents } from '../database/event.js';
 
 export const getEventList = async (req, res) => {
     try {
@@ -23,7 +23,7 @@ export const createNewEvent = async (req, res) => {
         const event = await createEvent(title, description, date, location);
         res.json(event);
     } catch (error) {
-        console.error("Error creating event:", error);
+        console.error("Error creating event be:", error);
         res.status(500).json({ error: "Error creating event" });
     }
 };

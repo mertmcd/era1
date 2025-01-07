@@ -1,10 +1,10 @@
-import Schema from "../models/Schema.js";
+import eventSchema from "../models/eventSchema.js";
 
 export const createEvent = async (title, description, date, location) => {
-    const newEvent = new Schema({ title, description, date, location });
+    const newEvent = new eventSchema({ title, description, date, location });
     return await newEvent.save();
 }
 
 export const listEvents = async () => {
-    return await Schema.find();
+    return await eventSchema.find();
 }

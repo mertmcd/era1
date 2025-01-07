@@ -16,7 +16,21 @@ const eventSchema = new mongoose.Schema({
     location: {
         type: String || Number,
         required: true,
-    }
+    },
+    creatorId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now,
+    },
+    participants: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+        }
+    ],
 });
 
 const Event = mongoose.model('Event', eventSchema);

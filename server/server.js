@@ -21,7 +21,6 @@ connectToDatabase();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
 // health check
 app.get('/health', (req, res) => {
   res.send('I am healthy');

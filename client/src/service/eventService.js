@@ -6,7 +6,7 @@ export const eventService = {
             const response = await axiosInstance.post('/events/create', { title, description, date, location });
             return response.data;
         } catch (error) {
-            console.error("Error creating event:", error);
+            console.error("Error creating event fe:", error);
             return null;
         }
     },
