@@ -25,7 +25,6 @@ const Signup = () => {
         formData.password
       );
 
-      debugger;
       navigate("/welcome");
 
       alert("User registered successfully");

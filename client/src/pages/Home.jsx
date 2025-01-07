@@ -8,7 +8,6 @@ const Home = () => {
   const fetchEvents = async () => {
     try {
       const data = await eventService.listEvents();
-      console.log(data);
       setEvents(data);
     } catch (err) {
       console.error(err);
