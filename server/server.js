@@ -22,7 +22,6 @@ connectToDatabase();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-//app.use(errorMiddleware);
 
 // health check
 app.get('/health', (req, res) => {
