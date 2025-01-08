@@ -18,24 +18,24 @@ Welcome to the Era1 Project! This project consists of both client and server com
 ### Installation
 
 1. Clone the repository:
-   `sh
+   ```sh
     git clone https://github.com/mertmcd/era1.git
-    `
+   ```
 2. Navigate to the client directory:
-   `sh
+   ```sh
     cd era1/client
-    `
+   ```
 3. Install dependencies:
-   `sh
+   ```sh
     npm install
-    `
+   ```
 
 ### Usage
 
 1. Start the development server:
-   `sh
+   ```sh
     npm run dev
-    `
+   ```
 2. Open your browser and navigate to `http://localhost:5173`.
 
 ## Server
@@ -43,18 +43,18 @@ Welcome to the Era1 Project! This project consists of both client and server com
 ### Installation
 
 1. Navigate to the server directory:
-   `sh
+   ```sh
     cd era1/server
-    `
+   ```
 2. Install dependencies:
-   `sh
+   ```sh
     npm install
-    `
+   ```
 
 ### Usage
 
 1. Start the server:
-   `sh
+   ```sh
     npm run dev
-    `
+   ```
 2. The server will be running on `http://localhost:5005`.
