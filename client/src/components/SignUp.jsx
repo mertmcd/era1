@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { authService } from "../service/authService";
-import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const Signup = () => {
+const Signup = ({ setIsLogin }) => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
     password: "",
   });
   const [error, setError] = useState("");
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -25,11 +25,12 @@ const Signup = () => {
         formData.email,
         formData.password
       );
-      navigate("/welcome");
-      alert("User registered successfully");
+      setIsLogin(true);
+      toast.success("User registered successfully");
     } catch (err) {
       console.error(err);
       setError(err.error || "An unknown error occurred");
+      toast.error(err.error || "An unknown error occurred");
     }
   };
 

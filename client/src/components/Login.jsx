@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { authService } from "../service/authService";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -18,9 +20,11 @@ const Login = () => {
     try {
       await authService.login(username, password);
       navigate("/");
+      toast.success("Login successful");
     } catch (err) {
       console.error(err);
       setError("Invalid username or password");
+      toast.error("Invalid username or password");
     } finally {
       setLoading(false);
     }

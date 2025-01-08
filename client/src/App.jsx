@@ -5,12 +5,21 @@ import ProfilePage from "./pages/Profile";
 import Welcome from "./pages/Welcome";
 import Navbar from "./components/Navbar";
 import PrivateRoute from "./components/PrivateRoute";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <Router>
       <Navbar />
       <div className="container mx-auto p-6">
+        <ToastContainer
+          position="bottom-right"
+          autoClose={3000}
+          hideProgressBar={true}
+          closeOnClick={true}
+          pauseOnHover={true}
+          draggable={true}
+        />
         <Routes>
           <Route path="/welcome" element={<Welcome />} />
           <Route

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { eventService } from "../service/eventService";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CreateEvent = () => {
   const [title, setTitle] = useState("");
@@ -12,7 +14,7 @@ const CreateEvent = () => {
     e.preventDefault();
 
     if (!title || !date || !location) {
-      alert("Title, date, and location are required.");
+      toast.error("Title, date, and location are required");
       return;
     }
 
@@ -24,10 +26,10 @@ const CreateEvent = () => {
       setDescription("");
       setDate("");
       setLocation("");
-      alert("Event created successfully");
+      toast.success("Event created successfully");
     } catch (err) {
       console.error(err);
-      alert("Failed to create event");
+      toast.error("Failed to create event");
     } finally {
       setLoading(false);
     }

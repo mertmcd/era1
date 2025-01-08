@@ -9,7 +9,7 @@ const Welcome = () => {
     <div className="flex flex-col items-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
         <h2 className="text-2xl font-bold text-center">Welcome to ERA1 App</h2>
-        <div>{isLogin ? <Login /> : <Signup />}</div>
+        <div>{isLogin ? <Login /> : <Signup setIsLogin={setIsLogin} />}</div>
         <div className="text-center">
           <button
             onClick={() => setIsLogin(!isLogin)}

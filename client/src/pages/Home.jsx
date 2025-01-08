@@ -1,6 +1,8 @@
 import EventList from "../components/EventList";
 import { useEffect, useState } from "react";
 import { eventService } from "../service/eventService";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Home = () => {
   const [events, setEvents] = useState([]);
@@ -11,6 +13,7 @@ const Home = () => {
       setEvents(data);
     } catch (err) {
       console.error(err);
+      toast.error("Failed to get events");
     }
   };
 
@@ -20,10 +23,12 @@ const Home = () => {
 
   const handleJoin = async () => {
     try {
-      alert("Joined event successfully");
+      //await eventService.joinEvent();
+      toast.success("Joined event successfully");
+      fetchEvents();
     } catch (err) {
       console.error(err);
-      alert("Failed to join event");
+      toast.error("Failed to join event");
     }
   };
 

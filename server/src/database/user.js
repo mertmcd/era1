@@ -18,7 +18,7 @@ export const getUserByUsername = async (username) => {
             .exec();
     }
     catch (error) {
-        console.error("Error getting user by username:", error);
+        console.error("Error getting user by username db:", error);
         return null;
     }
 }
