@@ -5,7 +5,7 @@ import { createUser, getUserByUsername } from "../database/user.js";
 const register = async (req, res) => {
     const { username, email, password } = req.body;
 
-    // TODO: input validation middleware
+    // check for missing fields
     if (!username || !email || !password) {
         return res.status(400).json({ error: "Missing required fields" });
     }
@@ -30,6 +30,7 @@ const register = async (req, res) => {
 const login = async (req, res) => {
     const { username, password } = req.body;
 
+    // check for missing fields
     if (!username || !password) {
         return res.status(400).json({ error: "Missing username or password" });
     }

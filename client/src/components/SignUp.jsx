@@ -8,11 +8,12 @@ const Signup = () => {
     email: "",
     password: "",
   });
-
+  const [error, setError] = useState(""); // Hata mesajı için state
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    setError(""); // Kullanıcı formu değiştirirken hatayı sıfırla
   };
 
   const handleSubmit = async (e) => {
@@ -26,11 +27,9 @@ const Signup = () => {
       );
 
       navigate("/welcome");
-
-      alert("User registered successfully");
     } catch (err) {
-      console.error(err);
-      alert("Failed to register user");
+      console.error("Signup error:", err);
+      setError(err);
     }
   };
 
@@ -84,6 +83,10 @@ const Signup = () => {
           >
             Sign Up
           </button>
+          {/* Hata mesajı */}
+          {error && (
+            <div className="mb-4 text-red-600 text-center">{error}</div>
+          )}
         </form>
       </div>
     </div>

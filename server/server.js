@@ -3,6 +3,7 @@ import connectToDatabase from './src/database/connection.js';
 import cors from 'cors';
 import eventRouters from './src/routes/events.js';
 import authRouters from './src/routes/auth.js';
+import errorMiddleware from './src/middlewares/errorMiddleware.js';
 
 import dotenv from 'dotenv';
 
@@ -16,10 +17,12 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
+
 connectToDatabase();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(errorMiddleware);
 
 // health check
 app.get('/health', (req, res) => {
