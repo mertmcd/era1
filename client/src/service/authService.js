@@ -8,8 +8,7 @@ export const authService = {
             console.log("User registered successfully:", response.data);
             return response.data;
         } catch (error) {
-            debugger;
-            throw error.response?.data?.errors[0].msg;
+            throw error.response?.data?.errors[0].msg || "Registration failed";
         }
     },
 
@@ -27,7 +26,7 @@ export const authService = {
 
             return token;
         } catch (error) {
-            throw error.response?.data?.error || "Login failed";
+            throw error.response?.data?.errors[0].msg || "Login failed";
         }
     },
 
