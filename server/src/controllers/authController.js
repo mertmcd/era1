@@ -22,7 +22,7 @@ const register = async (req, res) => {
     // create user
     const user = await createUser(username, email, passwordHash);
     if (!user) {
-        return res.status(500).json({ error: "Error creating user" });
+        return res.status(500).json({ error: "Error creating user auth" });
     }
     return res.json({ message: "User created successfully" });
 }

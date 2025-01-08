@@ -8,12 +8,12 @@ const Signup = () => {
     email: "",
     password: "",
   });
-  const [error, setError] = useState(""); // Hata mesajı için state
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setError(""); // Kullanıcı formu değiştirirken hatayı sıfırla
+    setError("");
   };
 
   const handleSubmit = async (e) => {
@@ -25,11 +25,11 @@ const Signup = () => {
         formData.email,
         formData.password
       );
-
       navigate("/welcome");
+      alert("User registered successfully");
     } catch (err) {
-      console.error("Signup error:", err);
-      setError(err);
+      console.error(err);
+      setError(err.error || "An unknown error occurred");
     }
   };
 
@@ -83,7 +83,6 @@ const Signup = () => {
           >
             Sign Up
           </button>
-          {/* Hata mesajı */}
           {error && (
             <div className="mb-4 text-red-600 text-center">{error}</div>
           )}

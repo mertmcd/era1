@@ -6,7 +6,7 @@ export const createUser = async (username, email, passwordHash) => {
         return await newUser.save();
     }
     catch (error) {
-        console.error("Error creating user:", error);
+        console.error("Error creating user db:", error);
         return null;
     }
 }
